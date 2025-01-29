@@ -29,8 +29,11 @@ const EVENT_LIST = Array(31).fill({ confirmed: false });
 function App() {
 
   const [events, setEvents] = useState<{ nom: string; heure: string; lieu: string; index: number; confirmed: boolean }[]>([]);
-
   const [eventList, setEventList] = useState(EVENT_LIST);
+
+
+
+
 
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -79,7 +82,7 @@ function App() {
     index: selected,
     confirmed: true,
   };
-  
+
   
   setEvents([...events, NEW_EVENEMENT]);
 
@@ -96,7 +99,12 @@ function App() {
     }
   })
 
-  };
+  }
+
+
+
+
+
 
 
 
@@ -113,17 +121,22 @@ function App() {
 
     (event.target as HTMLElement).classList.toggle("selected");
     // (event.target as HTMLElement).style.backgroundColor = "orange"; // à modifier pour reset la couleur quand on clique sur un autre jour nvm gérer dans le css 
-  };
+  }
+
+
+
+
+  
 
   const ROW = [];
   for (let i = 1; i <= 31; i++) { //fgestion des mois à - de 31 
     ROW.push(<Day key={i} jour={i.toString()} className="backgroundOrange" onClick={handleClick} />);
   }
 
+
+
   return (
       
-
-
     <article className="card">
         <FormCalendar onSubmit={handleSubmit} />
 
